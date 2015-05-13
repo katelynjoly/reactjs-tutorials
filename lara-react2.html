@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset=utf-8>
+		<title>LaraReact</title>
+
+		<script src="https://fb.me/react-0.13.2.js"></script>
+		<script src="https://fb.me/JSXTransformer-0.13.2.js"></script>
+	</head>
+	<body>
+
+		<script type="text/jsx">
+
+		var Counter = React.createClass({
+
+			getInitialState: function() {
+				return {
+					count: 0
+				};
+			},
+
+			add: function() {
+				var count = this.state.count + 1;
+				this.setState({ count });
+			},
+
+			subtract: function() {
+				var count = this.state.count - 1;
+				
+
+				if ( count > -1 ) {
+					this.setState({ count });
+				}
+			},
+
+			render: function() {
+				return (
+					<div>
+
+						<h1>Counter: {this.state.count}</h1>
+
+						<button onClick={this.subtract}>Subtract 1</button>
+						<button onClick={this.add}>Add 1</button>
+
+					</div>
+				);
+			}
+
+		});
+
+		React.render(<Counter/>, document.body);
+
+
+		</script>
+
+	</body>
+</html>
